@@ -8,11 +8,14 @@ class App extends Component {
       currentTime: new Date()
     };
   }
-  handleInterval = () => {
-    this.setState({ currentTime: new Date() });
-  };
+  // handleInterval = () => {
+  //   this.setState({ currentTime: new Date() });
+  // };
   componentDidMount() {
-    this.intervalId = setInterval(() => this.handleInterval, 1000);
+    this.intervalId = setInterval(
+      () => this.setState({ currentTime: new Date() }),
+      1000
+    );
   }
   componentWillUnmount() {
     clearInterval(this.intervalId);
